@@ -1,0 +1,13 @@
+diff --git a/mysqldumpslow b/mysqldumpslow
+index 0c64297..9f6df21 100755
+--- a/mysqldumpslow
++++ b/mysqldumpslow
+@@ -120,7 +120,7 @@ while ( defined($_ = shift @pending) or defined($_ = <>) ) {
+     next if $opt{g} and !m/$opt{g}/io;
+ 
+     unless ($opt{a}) {
+-       s/\b\d+\b/N/g;
++       s/(?<!line )\b\d+\b/N/g;
+        s/\b0x[0-9A-Fa-f]+\b/N/g;
+         s/''/'S'/g;
+         s/""/"S"/g;
